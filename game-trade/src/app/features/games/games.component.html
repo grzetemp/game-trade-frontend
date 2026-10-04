@@ -1,0 +1,18 @@
+<section class="games" aria-labelledby="games-heading">
+  <div class="page-heading">
+    <div>
+      <p class="eyebrow">GAME STORE</p>
+      <h1 id="games-heading">Find your next game</h1>
+    </div>
+  </div>
+
+  <app-games-search />
+
+  @if (games$ | async; as games) {
+    <div class="games-grid">
+      @for (game of games; track game.id; let first = $first) {
+        <app-game-item [game]="game" [priority]="first" />
+      }
+    </div>
+  }
+</section>

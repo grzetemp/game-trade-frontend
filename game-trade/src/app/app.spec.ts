@@ -5,8 +5,7 @@ describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
-    })
-      .compileComponents();
+    }).compileComponents();
   });
 
   it('should create the app', () => {
@@ -15,10 +14,12 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should render the shared page shell', () => {
     const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, game-trade');
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('mat-toolbar.site-header')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('main.page-content router-outlet')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('mat-toolbar.site-footer')).toBeTruthy();
   });
 });
