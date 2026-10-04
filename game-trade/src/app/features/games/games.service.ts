@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
-import { Game } from './games.data';
+import { Game } from './game.model';
 import { GamesApiService } from './games-api.service';
 
 @Injectable({ providedIn: 'root' })

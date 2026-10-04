@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
-import { Game, GAMES } from './games.data';
+import { Game } from './game.model';
+import { GAMES } from './games.data';
 
 @Injectable({ providedIn: 'root' })
 export class GamesApiService {

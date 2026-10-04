@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { Subject } from 'rxjs';
 import { GamesComponent } from './games.component';
+import { Game } from './game.model';
 import { GAMES } from './games.data';
-import { Game } from './games.data';
 import { GamesService } from './games.service';
 
 describe('GamesComponent', () => {

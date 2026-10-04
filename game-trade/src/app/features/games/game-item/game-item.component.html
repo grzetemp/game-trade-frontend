@@ -8,10 +8,7 @@
     [attr.loading]="priority() ? 'eager' : 'lazy'"
   />
   <mat-card-content class="game-details">
-    <div class="game-description">
-      <h2>{{ gameInfo.title }}</h2>
-    </div>
-    <span class="game-price">{{ gameInfo.price | currency: 'USD' }}</span>
+    <h2>{{ gameInfo.title }}</h2>
   </mat-card-content>
   <mat-card-actions align="end">
     <button mat-flat-button color="primary" type="button">Buy now</button>
