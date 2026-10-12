@@ -6,6 +6,6 @@ import { GAMES } from './games.data';
 @Injectable({ providedIn: 'root' })
 export class GamesApiService {
   getGames(): Observable<Game[]> {
-    return of(GAMES).pipe(delay(2000));
+    return of(GAMES).pipe(delay(3000));
   }
 }

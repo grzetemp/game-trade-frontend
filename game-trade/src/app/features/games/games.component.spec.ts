@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { GamesComponent } from './games.component';
 import { Game } from './game.model';
 import { GAMES } from './games.data';
-import { GamesService } from './games.service';
+import { GamesApiService } from './games-api.service';
 
 describe('GamesComponent', () => {
   let gamesSubject: Subject<Game[]>;
@@ -12,7 +12,7 @@ describe('GamesComponent', () => {
     gamesSubject = new Subject<Game[]>();
     await TestBed.configureTestingModule({
       imports: [GamesComponent],
-      providers: [{ provide: GamesService, useValue: { games$: gamesSubject.asObservable() } }],
+      providers: [{ provide: GamesApiService, useValue: { getGames: () => gamesSubject.asObservable() } }],
     }).compileComponents();
   });
 
@@ -27,6 +27,7 @@ describe('GamesComponent', () => {
     expect(fixture.nativeElement.querySelector('.loading-state')).toBeFalsy();
 
     gamesSubject.next(GAMES);
+    expect(fixture.componentInstance.games()).toBe(GAMES);
     fixture.detectChanges();
 
     expect(fixture.nativeElement.querySelector('.games-grid')).toBeTruthy();
