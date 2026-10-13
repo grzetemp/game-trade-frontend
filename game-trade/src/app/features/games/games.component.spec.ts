@@ -27,7 +27,7 @@ describe('GamesComponent', () => {
     expect(fixture.nativeElement.querySelector('.loading-state')).toBeFalsy();
 
     gamesSubject.next(GAMES);
-    expect(fixture.componentInstance.games()).toBe(GAMES);
+    expect(fixture.componentInstance.games).toBe(GAMES);
     fixture.detectChanges();
 
     expect(fixture.nativeElement.querySelector('.games-grid')).toBeTruthy();

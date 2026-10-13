@@ -8,9 +8,9 @@
 
   <app-games-search />
 
-  @if (games(); as loadedGames) {
+  @if (games != null) {
     <div class="games-grid">
-      @for (game of loadedGames; track game.id; let first = $first) {
+      @for (game of games; track game.id; let first = $first) {
         <app-game-item [game]="game" [priority]="first" />
       }
     </div>
